@@ -1,5 +1,4 @@
 import java.util.Arrays;
-
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -20,11 +19,14 @@ public class InterfazIp {
                                 btn, 
                                 btn[2]);
             if(resultado == 0){
+                String salida = JOptionPane.showInputDialog(null, "Introduzca la IP separada por puntos");
+                Ip ip = new Ip(salida);
+                ip.mostrarInfo();
                 
             } else if(resultado == 1){
                 int numero=1;
                 int[] bytes = new int[4];
-                String salida="";
+                String salida = "";
                 for (int i= 0; i<bytes.length; i++){
                     salida = JOptionPane.showInputDialog(null, "Introduce el byte:"+numero);
                     bytes[i] = Integer.parseInt(salida);
