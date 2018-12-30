@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -18,9 +20,19 @@ public class InterfazIp {
                                 btn, 
                                 btn[2]);
             if(resultado == 0){
-
+                
             } else if(resultado == 1){
-
+                int numero=1;
+                int[] bytes = new int[4];
+                String salida="";
+                for (int i= 0; i<bytes.length; i++){
+                    salida = JOptionPane.showInputDialog(null, "Introduce el byte:"+numero);
+                    bytes[i] = Integer.parseInt(salida);
+                    numero++;
+                }
+                Ip ip = new Ip(bytes);
+                ip.mostrarInfo();
+                
             }else{
                 noSalir = JOptionPane.showConfirmDialog(null, "¿Desea salir?"
                             ,"Salir",JOptionPane.YES_NO_OPTION);
@@ -28,3 +40,5 @@ public class InterfazIp {
         }
     }
 }
+
+
