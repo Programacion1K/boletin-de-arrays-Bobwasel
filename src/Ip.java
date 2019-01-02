@@ -41,11 +41,27 @@ public class Ip {
     }
 
     public String getEsPrivada(){
-        return null;
+        String salida = "";
+        if(bytes[0] <= 223 ){
+            salida += "Es privada";
+        } else {
+            salida += "No es privada";
+        }
+        return salida;
     }
 
     public String getClase(){
-        return null;
+        String clase = "";
+        if(bytes[0] <= 127){
+          clase = "A";
+        } 
+        if (bytes[0] <= 191){
+            clase = "B";    
+        }
+        if (bytes[0] <= 223){ 
+            clase = "C";
+        }
+        return clase;
     }
 
     public String getEsIdRed() {
