@@ -11,7 +11,7 @@ public class Ip {
         }
     }
 
-    public Ip (int[] bytes, String clase){
+    public Ip (int[] bytes){
         this.bytes = bytes;
     }
 
@@ -41,30 +41,36 @@ public class Ip {
     }
 
     public String getEsPrivada(){
-        String salida = "";
-        if(bytes[0] <= 223 ){
-            salida += "Es privada";
+        String cadena = "¿Es la red privada?: ";
+        if(bytes[0] == 10 || bytes[0] == 172 || bytes[0] == 192){
+            cadena += "Es privada";
         } else {
-            salida += "No es privada";
+            cadena += "No es privada";
         }
-        return salida;
+        return cadena;
     }
 
     public String getClase(){
-        String clase = "";
-        if(bytes[0] <= 127){
-          clase = "A";
+        String clase = "Clase: ";
+        if(bytes[0] >= 0 && bytes[0] <= 127){
+          clase += "A";
         } 
-        if (bytes[0] <= 191){
-            clase = "B";    
+        if (bytes[0] >= 128 && bytes[0] <= 191){
+            clase += "B";    
         }
-        if (bytes[0] <= 223){ 
-            clase = "C";
+        if (bytes[0] >= 192 && bytes[0] <= 223){ 
+            clase += "C";
         }
         return clase;
     }
 
     public String getEsIdRed() {
-        return null;
+        String idRed = "¿Es ID de red? ";
+        if (bytes[3] == 0){
+            idRed += "Es ID de red";
+        } else {
+            idRed += "No es ID de red";
+        }
+        return idRed;
     }
 }

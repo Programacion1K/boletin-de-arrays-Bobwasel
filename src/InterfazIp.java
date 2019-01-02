@@ -22,7 +22,7 @@ public class InterfazIp {
                 String salida = JOptionPane.showInputDialog(null, "Introduzca la IP separada por puntos");
                 Ip ip = new Ip(salida);
                 ip.mostrarInfo();
-                
+              
             } else if(resultado == 1){
                 int numero=1;
                 int[] bytes = new int[4];
