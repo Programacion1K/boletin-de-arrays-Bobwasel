@@ -11,15 +11,44 @@ public class Ip {
         }
     }
 
-    public Ip (int[] bytes){
+    public Ip (int[] bytes, String clase){
         this.bytes = bytes;
-
     }
 
     public void mostrarInfo(){
-        JOptionPane.showMessageDialog(null, "Dirección IP:"
-                                    + bytes[0] + "." + bytes[1]
-                                    + "." + bytes[2] + "."
-                                    + bytes[3]);
+        String salida = "";
+        salida += getDireccionIp() + "\n";
+        salida += getIdRed() + "\n";
+        salida += getMascaraRed() + "\n";
+        salida += getEsPrivada() + "\n";
+        salida += getClase() + "\n";
+        salida += getEsIdRed();
+
+        JOptionPane.showMessageDialog(null, salida);
+    }
+
+    public String getDireccionIp(){
+        return "Dirección IP: " + bytes[0] + "." + bytes[1] + "." + bytes[2] +
+                "." + bytes[3];
+    }
+
+    public String getIdRed(){
+        return "ID de red:" + bytes[0] + "." + bytes[1] + "." + bytes[2] + ".0";
+    }
+
+    public String getMascaraRed(){
+        return null;
+    }
+
+    public String getEsPrivada(){
+        return null;
+    }
+
+    public String getClase(){
+        return null;
+    }
+
+    public String getEsIdRed() {
+        return null;
     }
 }
