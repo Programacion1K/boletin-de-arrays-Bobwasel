@@ -1,4 +1,6 @@
+import javax.swing.Icon;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 
 public class Ip {
     private int[] bytes;
@@ -16,6 +18,7 @@ public class Ip {
     }
 
     public void mostrarInfo(){
+        Icon icono = new ImageIcon("img/ip.png");
         String salida = "";
         salida += getDireccionIp() + "\n";
         salida += getIdRed() + "\n";
@@ -24,7 +27,7 @@ public class Ip {
         salida += getClase() + "\n";
         salida += getEsIdRed();
 
-        JOptionPane.showMessageDialog(null, salida);
+        JOptionPane.showMessageDialog(null, salida, "INFORMACIÓN DE LA IP", 0, icono);
     }
 
     public String getDireccionIp(){
@@ -33,11 +36,21 @@ public class Ip {
     }
 
     public String getIdRed(){
-        return "ID de red:" + bytes[0] + "." + bytes[1] + "." + bytes[2] + ".0";
+        return "ID de red: " + bytes[0] + "." + bytes[1] + "." + bytes[2] + ".0";
     }
 
     public String getMascaraRed(){
-        return null;
+        String mascara = "Máscara de red: ";
+        if (bytes[0] >= 0 && bytes[0] <= 127){
+            mascara += bytes[0] + "." + 255 + "." + 255 + "." + 255;
+        }
+        if (bytes[0] >= 128 && bytes[0] <= 191){
+            mascara += bytes[0]+ "." + bytes[1] + "." + 255 + "." + 255;
+        }
+        if (bytes[0] >= 192 && bytes[0] <= 223){
+            mascara += bytes[0] + "." + bytes[1] + "." + bytes [2] + "." + 255;
+        }
+        return mascara;
     }
 
     public String getEsPrivada(){
