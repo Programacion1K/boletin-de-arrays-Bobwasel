@@ -42,13 +42,13 @@ public class Ip {
     public String getMascaraRed(){
         String mascara = "Máscara de red: ";
         if (bytes[0] >= 0 && bytes[0] <= 127){
-            mascara += bytes[0] + "." + 255 + "." + 255 + "." + 255;
+            mascara += "255.0.0.0";
         }
         if (bytes[0] >= 128 && bytes[0] <= 191){
-            mascara += bytes[0]+ "." + bytes[1] + "." + 255 + "." + 255;
+            mascara += "255.255.0.0";
         }
         if (bytes[0] >= 192 && bytes[0] <= 223){
-            mascara += bytes[0] + "." + bytes[1] + "." + bytes [2] + "." + 255;
+            mascara += "255.255.255.0";
         }
         return mascara;
     }
