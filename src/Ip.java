@@ -1,7 +1,7 @@
 import javax.swing.Icon;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
-
+// Cómo hacer tres constructores?
 public class Ip {
     private int[] bytes;
 
