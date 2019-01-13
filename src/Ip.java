@@ -1,7 +1,7 @@
 import javax.swing.Icon;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
-// Cómo hacer tres constructores?
+
 public class Ip {
     private int[] bytes;
 
@@ -15,19 +15,6 @@ public class Ip {
 
     public Ip (int[] bytes){
         this.bytes = bytes;
-    }
-
-    public void mostrarInfo(){
-        Icon icono = new ImageIcon("img/ip.png");
-        String salida = "";
-        salida += getDireccionIp() + "\n";
-        salida += getIdRed() + "\n";
-        salida += getMascaraRed() + "\n";
-        salida += getEsPrivada() + "\n";
-        salida += getClase() + "\n";
-        salida += getEsIdRed();
-
-        JOptionPane.showMessageDialog(null, salida, "INFORMACIÓN DE LA IP", 0, icono);
     }
 
     public String getDireccionIp(){
@@ -86,4 +73,5 @@ public class Ip {
         }
         return idRed;
     }
+    
 }

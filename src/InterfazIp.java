@@ -20,7 +20,7 @@ public class InterfazIp {
             if(resultado == 0){
                 String salida = JOptionPane.showInputDialog(null, "Introduzca la IP separada por puntos");
                 Ip ip = new Ip(salida);
-                ip.mostrarInfo();
+                mostrarInfo(ip);
               
             } else if(resultado == 1){
                 int numero=1;
@@ -32,7 +32,7 @@ public class InterfazIp {
                     numero++;
                 }
                 Ip ip = new Ip(bytes);
-                ip.mostrarInfo();
+                mostrarInfo(ip);
                 
             }else{
                 noSalir = JOptionPane.showConfirmDialog(null, "¿Desea salir?"
@@ -40,6 +40,20 @@ public class InterfazIp {
             }
         }
     }
+
+    public static void mostrarInfo(Ip ip){
+        Icon icono = new ImageIcon("img/ip.png");
+        String salida = "";
+        salida += ip.getDireccionIp() + "\n";
+        salida += ip.getIdRed() + "\n";
+        salida += ip.getMascaraRed() + "\n";
+        salida += ip.getEsPrivada() + "\n";
+        salida += ip.getClase() + "\n";
+        salida += ip.getEsIdRed();
+
+       JOptionPane.showMessageDialog(null, salida, "INFORMACIÓN DE LA IP", 0, icono);
+    }
 }
+
 
 
